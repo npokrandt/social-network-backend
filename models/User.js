@@ -11,16 +11,16 @@ const userSchema = new Schema({
         type: String,
         required: true,
         unique: true, 
-        match: [/(.*)/, 'please fill in a valid email address']      
+        match: [/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/, 'please fill in a valid email address']      
     },
     thoughts: [{
         type: Schema.Types.ObjectId,
         ref: 'Thoughts'
     }],
-    friends: {
+    friends: [{
         type: Schema.Types.ObjectId,
         ref: 'User'
-    }
+    }]
 })
 
 //virtual for friend count

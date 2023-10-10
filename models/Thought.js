@@ -10,9 +10,9 @@ const thoughtSchema = new Schema({
         maxLength: 280
     },
     createdAt: {
-        type: Date,
-        set: d = new Date(),
-        get: d => dayjs(d).format('MM/DD/YYYY')
+        Date,
+        //set: t => new Date(),
+        //get: d => dayjs(d).format('MM/DD/YYYY')
     },
     username: {
         type: String,
