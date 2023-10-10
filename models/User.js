@@ -1,4 +1,4 @@
-const {Schema, model, default: mongoose} = require('mongoose')
+const {Schema, model} = require('mongoose')
 
 const userSchema = new Schema({
     username: {
@@ -11,12 +11,12 @@ const userSchema = new Schema({
         type: String,
         required: true,
         unique: true, 
-        match: [/.*/, 'please fill in a valid email address']      
+        match: [/(.*)/, 'please fill in a valid email address']      
     },
-    /*thoughts: [{
+    thoughts: [{
         type: Schema.Types.ObjectId,
         ref: 'Thoughts'
-    }],*/
+    }],
     friends: {
         type: Schema.Types.ObjectId,
         ref: 'User'
