@@ -15,8 +15,8 @@ const reactionSchema = {
         required: true
     },
     createdAt: { 
-        Date,
-        //set: d = new Date(),
+        type: Date,
+        default: Date.now
         //get: d => dayjs(d).format('MM/DD/YYYY')
     }
 }
