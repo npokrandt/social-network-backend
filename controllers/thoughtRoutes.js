@@ -94,4 +94,40 @@ router.delete('/:thought_id', async (req, res) => {
         res.status(400).json(err);
     } 
 })
+
+//reaction routes
+router.post('/:thought_id/reactions', async (req, res) => {
+    try {
+        const newReaction = {
+            reactionBody: req.body.reactionBody,
+            username: req.body.username
+        }
+
+        const updatedThought = await Thought.updateOne({
+            _id: req.params.thought_id
+        },{
+            $push: {'reactions': newReaction}
+        })
+
+        res.status(201).json(updatedThought)
+    }  catch (err) {
+        res.status(400).json(err); 
+    }
+})
+
+router.delete('/:thought_id/reactions', async (req, res) => {
+    try {
+
+        const thought = await Thought.findByIdAndUpdate({
+            _id: req.params.thought_id
+        },{
+            $pull: {'reactions': {reactionId: req.body.reaction_id}}
+        })
+
+        res.status(200).json(thought)
+    }  catch (err) {
+        res.status(400).json(err); 
+    }
+})
+
 module.exports = router

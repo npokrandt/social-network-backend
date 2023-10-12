@@ -1,10 +1,6 @@
 /*
 routes needed:
     
-    api/thoughts:      
-        get by id
-        update by id
-        delete by id (and maybe remove thougts)
 
         :thoughtId/reactions:
             post a new thought
