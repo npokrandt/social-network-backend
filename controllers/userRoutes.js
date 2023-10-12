@@ -25,11 +25,10 @@ router.get('/:user_id', async (req, res) => {
         } else {
             res.status(404).send('user not found')
         }
-        res.status(200).json(user)
     }  catch (err) {
         res.status(400).json(err);
     }   
-})
+}) 
 
 router.post('/', async (req, res) => {
     try {
@@ -91,7 +90,6 @@ router.post('/:user_id/friends/:friend_id', async (req, res) => {
     try {
         const _id = req.params.user_id
         const friend_id = req.params.friend_id
-        console.log(_id, friend_id)
         const newFriend = await User.updateOne(
             {
                 _id: _id

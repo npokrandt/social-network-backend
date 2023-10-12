@@ -1,6 +1,6 @@
 const db = require('./config/connection')
 const routes = require('./controllers')
-//const {User} = require('./models')
+const {User, Thought} = require('./models')
 
 const express = require('express')
 const app = express()
@@ -44,12 +44,14 @@ const seedUsers = async () => {
 }
 
 const seedThoughts = async () => {
+    await Thought.deleteMany({})
 
 }
 
 
 const init = async () => {
-    //seedUsers()
+    seedUsers()
+    seedThoughts()
 
     //console.log(certainUser)
 }

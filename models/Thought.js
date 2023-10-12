@@ -11,15 +11,20 @@ const thoughtSchema = new Schema({
     },
     createdAt: {
         type: Date,
-        default: Date.now
-        //get: d => dayjs(d).format('MM/DD/YYYY')
+        default: Date.now,
+        get: (d) => {return dayjs(d).format('MM/DD/YYYY')}
     },
     username: {
         type: String,
         required: true
     },
     reactions: [reactionSchema]
-    
+},
+{
+    toJSON: {
+        virtuals: true,
+        getters: true
+    }
 })
 
 const Thought = model("Thought", thoughtSchema)

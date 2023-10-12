@@ -1,20 +1,8 @@
 /*
 routes needed:
-    api/users:
-        get all
-        get by id
-        post
-        update by id
-        delete by id (and maybe remove thougts)
-
-        :userId/friends:friendId:
-            post a new friend
-            delete to remove friend
     
     api/thoughts:      
-        get all
         get by id
-        post
         update by id
         delete by id (and maybe remove thougts)
 
