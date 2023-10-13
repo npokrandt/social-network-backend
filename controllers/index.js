@@ -1,12 +1,3 @@
-/*
-routes needed:
-    
-
-        :thoughtId/reactions:
-            post a new thought
-            delete to thought by its id
-*/
-
 const router = require('express').Router()
 
 const userRoutes = require('./userRoutes')
