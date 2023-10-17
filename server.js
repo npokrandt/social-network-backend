@@ -1,5 +1,5 @@
 const db = require('./config/connection')
-const routes = require('./controllers')
+const routes = require('./routes')
 const {User, Thought} = require('./models')
 
 const express = require('express')
